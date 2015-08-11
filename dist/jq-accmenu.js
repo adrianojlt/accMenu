@@ -32,6 +32,7 @@ if ( typeof Object.create !== 'function' ) {
 			plugin.init(settings, this);
 
 			plugin.tmp();
+			plugin.load();
 
 			plugin.setList();
 
@@ -76,6 +77,40 @@ if ( typeof Object.create !== 'function' ) {
 			this.mainLI = this.$elem.children('li');
 		},
 
+		load: function(settings, elem) {
+
+			var processList = function(LIs) {
+
+				LIs.each(function(index) {
+
+					var childrens = $(this).children();
+
+					childrens.each(function(index) {
+
+						if ( $(this).prop('tagName') === 'A' ) {
+							console.log('A: ',$(this).text());
+						}
+
+						if ( $(this).prop('tagName') === 'UL' ) {
+
+							console.log('UL: ',$(this));
+
+							var childrens = $(this).children();
+
+							childrens.each(function(index) {
+
+								if (  $(this).prop('tagName') === 'LI' ) {
+									processList($(this));
+								}
+							});
+						}
+					});
+				});
+			};
+
+			processList(this.mainLI);
+		},
+
 		setList: function() {
 
 			var settings = this.settings;
@@ -87,13 +122,11 @@ if ( typeof Object.create !== 'function' ) {
 					.addClass(settings.classname1l)
 					.addClass( settings.classname1l + '-theme-' + settings.theme);
 
-				var ul = $(this).children('ul');
-				ul.css("display","none");
+				var ul = $(this).children('ul').css("display","none");
 
-				var childrenLI = ul.children();
-				childrenLI.wrapAll('<div class="' + 'menuBorder' + '" />');
+				var list = ul.children().wrapAll('<div class="' + 'menuBorder' + '" />');
 
-				$.each(childrenLI, function(key, value) {
+				$.each(list, function(key, value) {
 
 					// add class name to 2nd level anchor
 					$(this).children('a')
@@ -101,10 +134,9 @@ if ( typeof Object.create !== 'function' ) {
 						.addClass( settings.classname2l + '-theme-' + settings.theme );
 
 					// add class name to 3nd level anchor
-					$(this).children('ul').css({display: "none"})
-						.each(function(index) {
-							$(this).children('li').children('a').addClass(settings.classname3l);
-						});
+					$(this).children('ul').css({display: "none"}).each(function(index) {
+						$(this).children('li').children('a').addClass(settings.classname3l);
+					});
 				});
 			});
 		},
