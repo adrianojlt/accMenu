@@ -10,7 +10,7 @@
 
 #menu ul {
 	list-style-type: 	none;
-	margin: 			2px 0px;
+	margin: 			0px 0px;
 	padding: 			0px;
 	width: 				196px;
 	overflow: 			hidden;
@@ -19,10 +19,11 @@
 #menu a {
 	display: 			block;
 	text-decoration: 	none;
+	cursor:				default;
 }
 
 
-.acc3mainlink, .acc3mainlink:hover {
+.acc3level1link, .acc3level1link:hover {
 	font-family:		Arial, Helvetica, sans-serif;
 	min-height: 		18px;
 	height: 			auto !important;
@@ -37,12 +38,12 @@
 	display: 			inline;
 }
 
-.acc3mainlink-theme-blue 			{background-color: #EEEEEE; }
-.acc3mainlink-theme-blue:hover 		{background-color: #E1E1E1; }
-.acc3mainlink-theme-original 		{background-color: #E8F2F8; } 
-.acc3mainlink-theme-original:hover 	{background-color: #D9EAF3; }
+.acc3level1link-theme-blue 				{background-color: #EEEEEE; }
+.acc3level1link-theme-blue:hover 		{background-color: #E1E1E1; }
+.acc3level1link-theme-original 			{background-color: #CEDFE8; } /*E8F2F8 7CB5D6*/
+.acc3level1link-theme-original:hover 	{background-color: #D3E5EF ; } /*D9EAF3 719BB3*/
 
-.acc3sublink {
+.acc3level2link {
 	min-height: 18px;
 	height: auto !important;
 	height: 18px;
@@ -55,22 +56,30 @@
 	border-bottom: 1px solid #FFF;
 }
 
-.acc3sublink-theme-blue 			{background-color: #E8F2F8; } 
-.acc3sublink-theme-blue:hover 		{background-color: #D9EAF3; }
-.acc3sublink-theme-original 		{background-color: #EEEEEE; }
-.acc3sublink-theme-original:hover 	{background-color: #E1E1E1; }
+.acc3level2link-theme-blue 				{background-color: #E8F2F8; } 
+.acc3level2link-theme-blue:hover 		{background-color: #D9EAF3; }
+.acc3level2link-theme-original 			{background-color: #EEEEEE; }
+.acc3level2link-theme-original:hover 	{background-color: #E1E1E1; }
 
-.acc3subsublink {
+.acc3level3link {
 	min-height: 18px;
 	height: auto !important;
 	height: 18px;
-	padding: 2px 23px 0px 20px;
+	padding: 5px 22px 0px 20px;
 	width: 151px;
 	background-color: #FFFFFF;
 	font-size: 0.7em;
-	color: #666;
+	color: #666; /*666*/
 	text-align: left;
+	margin-top: 0px;
+	margin-bottom: 1px;
+	display: inline;
 }
+
+.acc3level3link-theme-blue 				{background-color: #EEEEEE; }
+.acc3level3link-theme-blue:hover 		{background-color: #E1E1E1; }
+.acc3level3link-theme-original 			{background-color: #E8F2F8; } /*E8F2F8*/
+.acc3level3link-theme-original:hover 	{background-color: #D9EAF3; }
 
 
 .menuBorder {

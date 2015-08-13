@@ -32,9 +32,10 @@ if ( typeof Object.create !== 'function' ) {
 			plugin.init(settings, this);
 
 			plugin.tmp();
-			plugin.load();
 
-			plugin.setList();
+			plugin.build();
+
+			//plugin.setList();
 
 			plugin.mainLinksEvent();
 		});
@@ -53,9 +54,9 @@ if ( typeof Object.create !== 'function' ) {
 		autohide		: true,
 		slideSpeed		: 500,
 		event			: 'click',
-		classname1l 	: 'acc3mainlink',
-		classname2l		: 'acc3sublink',
-		classname3l		: 'acc3subsublink'
+		classname1l 	: 'acc3level1link',
+		classname2l		: 'acc3level2link',
+		classname3l		: 'acc3level3link'
 	};
 
 	var Plugin = {
@@ -77,30 +78,52 @@ if ( typeof Object.create !== 'function' ) {
 			this.mainLI = this.$elem.children('li');
 		},
 
-		load: function(settings, elem) {
+		build: function() {
 
-			var processList = function(LIs) {
+			var settings = this.settings;
+
+			var processList = function(LIs,topLevel) {
+
+				//console.log(topLevel,LIs);
 
 				LIs.each(function(index) {
 
-					var childrens = $(this).children();
+					var li = $(this);
 
-					childrens.each(function(index) {
+					li.children().each(function(index) {
 
 						if ( $(this).prop('tagName') === 'A' ) {
-							console.log('A: ',$(this).text());
+
+							//console.log(topLevel, li.children().size(), $(this));
+							if ( li.children().size() === 1 ) $(this).css('cursor','pointer').css('color','blue');
+
+							switch(topLevel) {
+							    case 1:
+							    	//console.log('first level',$(this));
+							 		$(this).addClass( settings.classname1l ).addClass( settings.classname1l + '-theme-' + settings.theme );
+							        break;
+							    case 2:
+							    	//console.log('secound level');
+							    	$(this).addClass( settings.classname2l ).addClass( settings.classname2l + '-theme-' + settings.theme );
+							        break;
+							    case 3:
+							    	//console.log('third level',$(this));
+							 		$(this).addClass( settings.classname3l ).addClass( settings.classname3l + '-theme-' + settings.theme );
+							    	//$(this).addClass( settings.classname3l );
+							    default:
+							}
 						}
 
 						if ( $(this).prop('tagName') === 'UL' ) {
 
-							console.log('UL: ',$(this));
+							var childrens = $(this).css("display","none").children().wrapAll('<div class="' + 'menuBorder' + '" />');
 
-							var childrens = $(this).children();
+							var innerLevel = topLevel + 1;
 
 							childrens.each(function(index) {
 
 								if (  $(this).prop('tagName') === 'LI' ) {
-									processList($(this));
+									processList($(this),innerLevel);
 								}
 							});
 						}
@@ -108,7 +131,7 @@ if ( typeof Object.create !== 'function' ) {
 				});
 			};
 
-			processList(this.mainLI);
+			processList(this.mainLI,1);
 		},
 
 		setList: function() {
@@ -118,18 +141,22 @@ if ( typeof Object.create !== 'function' ) {
 			this.mainLI.each(function(index) {
 
 				// add class name to 1nd level anchor
-				$(this).children('a')
-					.addClass(settings.classname1l)
-					.addClass( settings.classname1l + '-theme-' + settings.theme);
+				//$(this).children('a')
+					//.addClass(settings.classname1l)
+					//.addClass( settings.classname1l + '-theme-' + settings.theme);
 
-				var ul = $(this).children('ul').css("display","none");
+				//var ul = $(this).children('ul').css("display","none");
+				var ul = $(this).children('ul');
 
-				var list = ul.children().wrapAll('<div class="' + 'menuBorder' + '" />');
+				//var list = ul.children().wrapAll('<div class="' + 'menuBorder' + '" />');
+				var list = ul.children();
+				//console.log(list);
+				return;
 
 				$.each(list, function(key, value) {
 
 					// add class name to 2nd level anchor
-					$(this).children('a')
+					$(this).children().children('a')
 						.addClass( settings.classname2l )
 						.addClass( settings.classname2l + '-theme-' + settings.theme );
 
