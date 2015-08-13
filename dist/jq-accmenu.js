@@ -35,8 +35,6 @@ if ( typeof Object.create !== 'function' ) {
 
 			plugin.build();
 
-			//plugin.setList();
-
 			plugin.mainLinksEvent();
 		});
 	}
@@ -111,12 +109,15 @@ if ( typeof Object.create !== 'function' ) {
 							 		$(this).addClass( settings.classname3l ).addClass( settings.classname3l + '-theme-' + settings.theme );
 							    	//$(this).addClass( settings.classname3l );
 							    default:
+							    	// all other levels ...
 							}
 						}
 
 						if ( $(this).prop('tagName') === 'UL' ) {
 
-							var childrens = $(this).css("display","none").children().wrapAll('<div class="' + 'menuBorder' + '" />');
+							var childrens = $(this).css("display","none").children();
+
+							if ( topLevel === 1 ) childrens.wrapAll('<div class="' + 'menuBorder' + '" />');
 
 							var innerLevel = topLevel + 1;
 
@@ -132,40 +133,6 @@ if ( typeof Object.create !== 'function' ) {
 			};
 
 			processList(this.mainLI,1);
-		},
-
-		setList: function() {
-
-			var settings = this.settings;
-
-			this.mainLI.each(function(index) {
-
-				// add class name to 1nd level anchor
-				//$(this).children('a')
-					//.addClass(settings.classname1l)
-					//.addClass( settings.classname1l + '-theme-' + settings.theme);
-
-				//var ul = $(this).children('ul').css("display","none");
-				var ul = $(this).children('ul');
-
-				//var list = ul.children().wrapAll('<div class="' + 'menuBorder' + '" />');
-				var list = ul.children();
-				//console.log(list);
-				return;
-
-				$.each(list, function(key, value) {
-
-					// add class name to 2nd level anchor
-					$(this).children().children('a')
-						.addClass( settings.classname2l )
-						.addClass( settings.classname2l + '-theme-' + settings.theme );
-
-					// add class name to 3nd level anchor
-					$(this).children('ul').css({display: "none"}).each(function(index) {
-						$(this).children('li').children('a').addClass(settings.classname3l);
-					});
-				});
-			});
 		},
 
 		mainLinksEvent: function() {
