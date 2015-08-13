@@ -8,6 +8,11 @@
 		
 }
 
+/* fix if bootstrap css framework is used */
+#menu * {
+	box-sizing: 		content-box;
+}
+
 #menu ul {
 	list-style-type: 	none;
 	margin: 			0px 0px;
@@ -66,7 +71,7 @@
 	min-height: 18px;
 	height: auto !important;
 	height: 18px;
-	padding: 5px 20px 0px 20px;
+	padding: 5px 20px 0px 21px;
 	margin-left: 1px;
 	width: 151px;
 	background-color: #FFFFFF;
