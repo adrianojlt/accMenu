@@ -11,10 +11,12 @@
   <title>Accordion Menu</title>
 
     <!--
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
     -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css">
 
+    <!--
     <link href="reset.css" rel="stylesheet" media="screen" type="text/css" />
+    -->
     <link href="../dist/style.css" rel="stylesheet" media="screen" type="text/css" />
 
     <!--
@@ -33,11 +35,15 @@
 
     // executed when DOM is ready
     $(document).ready(function() {
+
         var menu = $('#menu');
+
         menu.accMenu({
-            theme:      'original', 
+            theme: 'original', 
             slideSpeed: 500, 
         });
+
+        $('#anotherMenu').accMenu({slideSpeed:800,theme:'blue'});
     });
 
     // javascript self execution function
@@ -54,99 +60,194 @@
 
 <body>
      
-<ul id="menu" style="margin: 5px 0px 0px 10px;">
-    <li>
-        <a href="http://www.google.com" class="">link 1 Level 1</a>
-        <ul>
-            <li><a href="#">subLink1</a></li>
-            <li><a href="#">subLink2</a></li>
-            <li><a href="#">subLink3</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" class="">link 2 Level 1</a>
-        <ul>
-            <li><a href="#">subLink1</a></li>
-            <li><a href="#">subLink2</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-            <li><a href="#">subLink3</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" class="">link 3 Level 1</a>
-        <!--
-        <ul>
-            <li><a href="#">subLink1</a></li>
-            <li><a href="#">subLink2</a></li>
-            <li><a href="#">subLink3</a></li>
-        </ul>
-        -->
-    </li>
-    <li>
-        <a href="#" class="">link 4 Level 1</a>
-        <ul>
-            <li><a href="#">subLink1</a></li>
-            <li><a href="#">subLink2</a></li>
-            <li><a href="#">subLink3</a></li>
-        </ul>
-    </li>
-    <li>
-        <a href="#" class="">link 5 Level 1</a>
-        <ul>
-            <li>
-                <a href="#">subLink1</a>
-                <ul>
-                    <li><a href="#">subSubLink1</a></li>
-                    <li><a href="#">subSubLink2</a></li>
-                    <li><a href="#">subSubLink3</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">subLink2</a>
-                <ul>
-                    <li><a href="#">subSubLink1</a></li>
-                    <li><a href="#">subSubLink2</a></li>
-                    <li><a href="#">subSubLink3</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">subLink3</a>
-                <ul>
-                    <li><a href="#">subSubLink1</a></li>
-                    <li><a href="#">subSubLink2</a></li>
-                    <li><a href="#">subSubLink3</a></li>
-                </ul>
-            </li>
-        </ul>
-    </li>
-</ul>
+    <div class="row">
+
+        <div class="col-xs-4">
+            <ul id="menu" class="myaccmenu" style="margin: 5px 0px 0px 10px;">
+
+                <li>
+                    <a href="#" class="">link 1 Level 1</a>
+                    <ul>
+                        <li>
+                            <a href="#">subLink1</a>
+                            <ul>
+                                <li>
+                                    <a href="#">subsubLinkX</a>
+                                    <ul>
+                                        <li><a href="#">xxx</a></li>
+                                        <li><a href="#">yyy</a></li>
+                                        <li><a href="#">zzz</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">subsubLink1</a></li>
+                                <li><a href="#">subsubLink2</a></li>
+                                <li><a href="#">subsubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink4</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="http://www.google.com" class="">link 1 Level 1</a>
+                    <ul>
+                        <li><a href="#">subLink1</a></li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="">link 2 Level 1</a>
+                    <ul>
+                        <li><a href="#">subLink1</a></li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="">link 3 Level 1</a>
+                    <!--
+                    <ul>
+                        <li><a href="#">subLink1</a></li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                    </ul>
+                    -->
+                </li>
+
+                <li>
+                    <a href="#" class="">link 4 Level 1</a>
+                    <ul>
+                        <li><a href="#">subLink1</a></li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="">link 5 Level 1</a>
+                    <ul>
+                        <li>
+                            <a href="#">subLink1</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">subLink2</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">subLink3</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="col-xs-4">
+            <ul id="anotherMenu" class="myaccmenu" style="margin: 5px 0px 0px 10px;">
+
+                <li>
+                    <a href="#" class="">link 1 Level 1</a>
+                    <ul>
+                        <li>
+                            <a href="#">subLink1</a>
+                            <ul>
+                                <li>
+                                    <a href="#">subsubLinkX</a>
+                                    <ul>
+                                        <li><a href="#">xxx</a></li>
+                                        <li><a href="#">yyy</a></li>
+                                        <li><a href="#">zzz</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">subsubLink1</a></li>
+                                <li><a href="#">subsubLink2</a></li>
+                                <li><a href="#">subsubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                        <li><a href="#">subLink4</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="http://www.google.com" class="">link 1 Level 1</a>
+                    <ul>
+                        <li><a href="#">subLink1</a></li>
+                        <li><a href="#">subLink2</a></li>
+                        <li><a href="#">subLink3</a></li>
+                    </ul>
+                </li>
+
+                <li>
+                    <a href="#" class="">link 5 Level 1</a>
+                    <ul>
+                        <li>
+                            <a href="#">subLink1</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">subLink2</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">subLink3</a>
+                            <ul>
+                                <li><a href="#">subSubLink1</a></li>
+                                <li><a href="#">subSubLink2</a></li>
+                                <li><a href="#">subSubLink3</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+
+
 
 </body>
 
 
 
-
 <script type="text/javascript">
 
-/*
-$(document).ready(function() {
-$("#menu > li").click(function(){
-
-  if(false == $(this).next().is(':visible')) {
-    $('#menu > ul').slideUp(300);
-  }
-  $(this).next().slideToggle(300);
-});
-
-$('#menu > ul:eq(0)').show();
-});
-*/
 </script>
 
 </html>

@@ -80,6 +80,8 @@ if ( typeof Object.create !== 'function' ) {
 
 			var settings = this.settings;
 
+			var plugin = this.self;
+
 			var processList = function(LIs,topLevel) {
 
 				//console.log(topLevel,LIs);
