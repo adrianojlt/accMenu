@@ -20,8 +20,8 @@
 	overflow: 			hidden;
 }
 
-.myaccmenu a {
-	display: 			block !important;
+.myaccmenu.myaccmenu a {
+	display: 			block;
 	text-decoration: 	none;
 	cursor:				default;
 }
